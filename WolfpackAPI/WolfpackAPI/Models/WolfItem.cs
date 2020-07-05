@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WolfAPI.Models
+﻿namespace WolfAPI.Models
 {
     /// <summary>
     /// Data object for a wolf.
@@ -20,38 +18,22 @@ namespace WolfAPI.Models
         /// <summary>
         /// Birthdate of the wolf.
         /// </summary>
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         /// <summary>
-        /// Gender of the wolf.
+        /// Gender of the wolf. This can be:
+        /// 0 = Not known;
+        ///1 = Male;
+        ///2 = Female;
+        ///3 = Non binary;
+        ///9 = Not applicable.
         /// </summary>
-        public WolfGender Gender { get; set; }
+        public int Gender { get; set; }
 
         /// <summary>
-        /// Property for the location of the wolf.
+        /// Property for the location of the wolf. This should always be made up of an array of at least size 2 and not bigger than 3. Omitting the third
+        /// element is assumed to be an elevation of zero.
         /// </summary>
-        public WolfLocation Location { get; set; }
-    }
-
-    /// <summary>
-    /// Enumeration of the ISO/IEC 5218 standard for including gender with one additional field.
-    /// </summary>
-    public enum WolfGender 
-    { 
-        Not_known = 0,
-        Male = 1,
-        Female = 2,
-        Non_binary = 3,
-        Not_applicable = 9
-    }
-
-    /// <summary>
-    /// Struct to save the position of a wolf following ISO 6709. Every coordinate is converted into a float representation of the original coordinate.
-    /// </summary>
-    public struct WolfLocation
-    {
-        float Latitude;
-        float Longtitude;
-        float Elevation;
+        public string Location { get; set; }
     }
 }
